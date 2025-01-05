@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hw1Task2", "Hw1Task2\Hw1Tas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hw1Task3", "Hw1Task3\Hw1Task3.csproj", "{4397CCCB-22C3-433C-B9D7-03E3A1C8A0D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HwTask4", "HwTask4\HwTask4.csproj", "{0F22EB17-5CF5-4763-B0EA-2DA813B5DCAF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hw1Task4", "HwTask4\Hw1Task4.csproj", "{0F22EB17-5CF5-4763-B0EA-2DA813B5DCAF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
