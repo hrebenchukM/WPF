@@ -27,7 +27,7 @@
     
         <StackPanel Grid.Row="0" Grid.Column="1" Margin="10">
             <TextBlock Text="ФИО:" />
-            <TextBox x:Name="NameTextBox"  />
+            <TextBox x:Name="NameTextBox"   />
 
             <TextBlock Text="Адрес:" />
             <TextBox x:Name="AddressTextBox"/>
