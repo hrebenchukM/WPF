@@ -25,6 +25,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutedEvents", "..\..\..\Ro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hw3Notepad", "Hw3Notepad\Hw3Notepad.csproj", "{C5384FAF-3FEB-41C7-ACC4-45C7355576E8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingToUIElement", "..\..\..\6. Привязка данных\3. Привязка к элементу управления\BindingToUIElement\BindingToUIElement\BindingToUIElement.csproj", "{7F10CC47-761E-412F-B44D-A7C07913782F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hw4Pocket-book", "Hw4Pocket-book\Hw4Pocket-book.csproj", "{E20D6A2E-B916-4FEE-8DE1-D56BFDE3F6AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBinding", "..\..\..\6. Привязка данных\5. Множественная привязка\DataBinding\DataBinding.csproj", "{5A255259-C2A5-49E8-8C10-73426F7C6A0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingToClass", "..\..\..\6. Привязка данных\9. Привязка к классу\BindingToClass\BindingToClass\BindingToClass.csproj", "{0AF55593-EC43-4F00-A676-714BFB032704}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingWPFApplicationI", "..\..\..\6. Привязка данных\12. ObservableCollection. ItemTemplate. DataTemplate\BindingWPFApplication\BindingWPFApplication\BindingWPFApplicationI.csproj", "{D6458519-9C2D-42D0-9CB0-769D948E43C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingWPFApplicationD", "..\..\..\6. Привязка данных\14. ObservableCollection. Свойства зависимостей\BindingWPFApplication\BindingWPFApplication\BindingWPFApplicationD.csproj", "{EA4FC30B-1F63-4424-9D43-7DAAF8C51285}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +87,30 @@ Global
 		{C5384FAF-3FEB-41C7-ACC4-45C7355576E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5384FAF-3FEB-41C7-ACC4-45C7355576E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5384FAF-3FEB-41C7-ACC4-45C7355576E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F10CC47-761E-412F-B44D-A7C07913782F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F10CC47-761E-412F-B44D-A7C07913782F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F10CC47-761E-412F-B44D-A7C07913782F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F10CC47-761E-412F-B44D-A7C07913782F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E20D6A2E-B916-4FEE-8DE1-D56BFDE3F6AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E20D6A2E-B916-4FEE-8DE1-D56BFDE3F6AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E20D6A2E-B916-4FEE-8DE1-D56BFDE3F6AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E20D6A2E-B916-4FEE-8DE1-D56BFDE3F6AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A255259-C2A5-49E8-8C10-73426F7C6A0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A255259-C2A5-49E8-8C10-73426F7C6A0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A255259-C2A5-49E8-8C10-73426F7C6A0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A255259-C2A5-49E8-8C10-73426F7C6A0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AF55593-EC43-4F00-A676-714BFB032704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AF55593-EC43-4F00-A676-714BFB032704}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AF55593-EC43-4F00-A676-714BFB032704}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AF55593-EC43-4F00-A676-714BFB032704}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6458519-9C2D-42D0-9CB0-769D948E43C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6458519-9C2D-42D0-9CB0-769D948E43C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6458519-9C2D-42D0-9CB0-769D948E43C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6458519-9C2D-42D0-9CB0-769D948E43C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA4FC30B-1F63-4424-9D43-7DAAF8C51285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA4FC30B-1F63-4424-9D43-7DAAF8C51285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA4FC30B-1F63-4424-9D43-7DAAF8C51285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA4FC30B-1F63-4424-9D43-7DAAF8C51285}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
