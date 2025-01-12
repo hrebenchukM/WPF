@@ -12,12 +12,19 @@
     </Window.Resources>
     <ScrollViewer>
         <StackPanel DataContext="{StaticResource bookrecords}">
-            <StackPanel Orientation="Horizontal" Margin="0" VerticalAlignment="Center">
-                <TextBox Name="langName" Width="150" Text="{Binding RecordName}" GotFocus="langName_GotFocus"></TextBox>
-                <TextBox Name="langAuthor" Width="150" Text="{Binding RecordAdress}" GotFocus="langName_GotFocus"></TextBox>
-                <TextBox Name="langYear" Width="150" Text="{Binding RecordPhone}" GotFocus="langName_GotFocus"></TextBox>
+            <StackPanel Orientation="Horizontal" Margin="10" VerticalAlignment="Center">
+                <TextBox Name="recordName" Width="150" Text="{Binding RecordName}" GotFocus="recordName_GotFocus"></TextBox>
+                <TextBox Name="recordAuthor" Width="150" Text="{Binding RecordAdress}" GotFocus="recordName_GotFocus"></TextBox>
+                <TextBox Name="recordYear" Width="150" Text="{Binding RecordPhone}" GotFocus="recordName_GotFocus"></TextBox>
                 <Button Content="Добавить" Margin="15 0 0 0" Click="Button_Click" />
+                <Button Content="Изменить" Margin="15 0 0 0"  Click="Edit_Click" />
+                <Button Content="Удалить" Margin="15 0 0 0"  Click="Delete_Click" />
             </StackPanel>
+          
+
+
+           
+
             <ListBox ItemsSource="{Binding Records}" SelectedIndex="{Binding  Index_selected_listbox, Mode=TwoWay}"
              SelectionChanged="listBox1_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListBox.ItemTemplate>
@@ -37,6 +44,11 @@
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
             </ListBox>
+            
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <Button Content="Сохранить" Margin="15 0 0 0" Click="Save_Click" />
+                <Button Content="Открыть" Margin="15 0 0 0" Click="Open_Click" />
+            </StackPanel>
         </StackPanel>
     </ScrollViewer>
 </Window>

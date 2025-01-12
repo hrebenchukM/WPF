@@ -26,33 +26,125 @@ namespace Hw4Pocket_book
             InitializeComponent();
         }
 
+        private void Open_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            if (openFileDialog1.ShowDialog() == true)
+            {
+                BookRecords bookrecords = Resources["bookrecords"] as BookRecords; //обращаемся к ресурсам окна и получаем обьект класса ProgrammingLanguage
+
+                var lines = File.ReadAllLines(openFileDialog1.FileName);
+                bookrecords.Records.Clear();
+                foreach (var line in lines)
+                {
+                    var parts = line.Split(';');
+                    if (parts.Length == 3)
+                    {
+                        bookrecords.Records.Add(new Record
+                        {
+                            Name = parts[0],
+                            Adress = parts[1],
+                            Phone = parts[2]
+                        });
+                    }
+                }
+
+                Title = Path.GetFileName(openFileDialog1.FileName) + " - Записная книжка";
+            }
+        }
+
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            if (saveFileDialog1.ShowDialog() == true)
+            {
+                BookRecords bookrecords = Resources["bookrecords"] as BookRecords; //обращаемся к ресурсам окна и получаем обьект класса ProgrammingLanguage
+
+
+               
+                var lines = new List<string>();
+                foreach (Record record in bookrecords.Records)
+                {
+                    lines.Add(record.Name + ";" + record.Adress + ";" + record.Phone);
+                }
+
+             
+                File.WriteAllLines(saveFileDialog1.FileName, lines);
+
+                MessageBox.Show("Файл сохранен!");
+            }
+
+
+        }
+
+
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            BookRecords bookrecords = Resources["bookrecords"] as BookRecords; //обращаемся к ресурсам окна и получаем обьект класса ProgrammingLanguage
+
+
+            if (bookrecords.Index_selected_listbox >= 0 && bookrecords.Index_selected_listbox < bookrecords.Records.Count)
+            {
+               
+                    bookrecords.Records.RemoveAt(bookrecords.Index_selected_listbox);
+                    bookrecords.Index_selected_listbox = -1;
+            }
+            else
+            {
+                MessageBox.Show("Выберите запись для удаления.");
+            }
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            BookRecords bookrecords = Resources["bookrecords"] as BookRecords; //обращаемся к ресурсам окна и получаем обьект класса ProgrammingLanguage
+
+
+            if (bookrecords.Index_selected_listbox >= 0 && bookrecords.Index_selected_listbox < bookrecords.Records.Count)
+            {
+                var selectedRecord = bookrecords.Records[bookrecords.Index_selected_listbox];
+                selectedRecord.Name = bookrecords.RecordName;
+                selectedRecord.Adress = bookrecords.RecordAdress;
+                selectedRecord.Phone = bookrecords.RecordPhone;
+            }
+            else
+            {
+                MessageBox.Show("Выберите запись для редактирования.");
+            }
+        }
+
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            BookRecords bookrecords = Resources["bookrecords"] as BookRecords; ;//обращаемся к ресурсам окна и получаем обьект класса ProgrammingLanguage
-            Record lang = new Record();
-            lang.Name = bookrecords.RecordName;
-            lang.Adress = bookrecords.RecordAdress;
-            lang.Phone = bookrecords.RecordPhone;
-            bookrecords.Records.Add(lang);
+            BookRecords bookrecords = Resources["bookrecords"] as BookRecords; //обращаемся к ресурсам окна и получаем обьект класса ProgrammingLanguage
+            Record record = new Record();
+            record.Name = bookrecords.RecordName;
+            record.Adress = bookrecords.RecordAdress;
+            record.Phone = bookrecords.RecordPhone;
+            bookrecords.Records.Add(record);
         }
 
         private void listBox1_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             try
             {
-                BookRecords bookrecords = Resources["bookrecords"] as BookRecords; ;//обращаемся к ресурсам окна и получаем обьект класса ProgrammingLanguage
+                BookRecords bookrecords = Resources["bookrecords"] as BookRecords; //обращаемся к ресурсам окна и получаем обьект класса ProgrammingLanguage
                 if (bookrecords.Index_selected_listbox == -1)
                     return;
-                Record lang = bookrecords.Records[bookrecords.Index_selected_listbox];
-                bookrecords.RecordName = lang.Name;
-                bookrecords.RecordAdress = lang.Adress;
-                bookrecords.RecordPhone = lang.Phone;
+                Record record = bookrecords.Records[bookrecords.Index_selected_listbox];
+                bookrecords.RecordName = record.Name;
+                bookrecords.RecordAdress = record.Adress;
+                bookrecords.RecordPhone = record.Phone;
             }
             catch { }
         }
 
-        private void langName_GotFocus(object sender, RoutedEventArgs e)
+        private void recordName_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox textbox = sender as TextBox;
             textbox.Text = string.Empty;
@@ -181,4 +273,5 @@ namespace Hw4Pocket_book
             //подписчик-это тот элемент который привязывался  Text="{Binding Name}
         }
     }
+
 }

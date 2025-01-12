@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingWPFApplicationI", ".
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingWPFApplicationD", "..\..\..\6. Привязка данных\14. ObservableCollection. Свойства зависимостей\BindingWPFApplication\BindingWPFApplication\BindingWPFApplicationD.csproj", "{EA4FC30B-1F63-4424-9D43-7DAAF8C51285}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hw4Pocket-bookD", "Hw4Pocket-bookD\Hw4Pocket-bookD.csproj", "{24E32F69-DF6A-45B2-8BFC-5E6402AD2F32}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{EA4FC30B-1F63-4424-9D43-7DAAF8C51285}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA4FC30B-1F63-4424-9D43-7DAAF8C51285}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA4FC30B-1F63-4424-9D43-7DAAF8C51285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24E32F69-DF6A-45B2-8BFC-5E6402AD2F32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24E32F69-DF6A-45B2-8BFC-5E6402AD2F32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24E32F69-DF6A-45B2-8BFC-5E6402AD2F32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24E32F69-DF6A-45B2-8BFC-5E6402AD2F32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
