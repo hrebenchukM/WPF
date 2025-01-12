@@ -5,27 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hw4Pocket_bookD"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Записная книжка" Height="450" Width="800" MinHeight="450" MinWidth="500" Background="#F7E3AF">
     <Window.Resources>
-        <local:ProgrammingLanguages x:Key="programminglanguages" LanguageName="C++" LanguageAuthor="Страуструп" LanguageYear="1983" />
+        <local:BookRecords x:Key="bookrecords" RecordName="Мария Г.Г" RecordAdress="Березовка,ул.Победы,д.32" RecordPhone="+380972860462" />
     </Window.Resources>
     <ScrollViewer>
-        <StackPanel DataContext="{StaticResource programminglanguages}">
+        <StackPanel DataContext="{StaticResource bookrecords}">
             <StackPanel Orientation="Horizontal" Margin="0" VerticalAlignment="Center">
-                <TextBox Name="langName" Width="150" Text="{Binding LanguageName}" GotFocus="langName_GotFocus"></TextBox>
-                <TextBox Name="langAuthor" Width="150" Text="{Binding LanguageAuthor}" GotFocus="langName_GotFocus"></TextBox>
-                <TextBox Name="langYear" Width="150" Text="{Binding LanguageYear}" GotFocus="langName_GotFocus"></TextBox>
+                <TextBox Name="recordName" Width="150" Text="{Binding RecordName}" GotFocus="langName_GotFocus"></TextBox>
+                <TextBox Name="recordAdress" Width="150" Text="{Binding RecordAdress}" GotFocus="langName_GotFocus"></TextBox>
+                <TextBox Name="recordPhone" Width="150" Text="{Binding RecordPhone}" GotFocus="langName_GotFocus"></TextBox>
                 <Button Content="Добавить" Margin="15 0 0 0" Click="Button_Click" />
+                <Button Content="Изменить" Margin="15 0 0 0"  Click="Edit_Click" />
+                <Button Content="Удалить" Margin="15 0 0 0"  Click="Delete_Click" />
             </StackPanel>
-            <ListBox ItemsSource="{Binding Languages}" SelectedIndex="{Binding  SelectedIndex, Mode=TwoWay}"
+            <ListBox ItemsSource="{Binding Records}" SelectedIndex="{Binding  SelectedIndex, Mode=TwoWay}"
                SelectionChanged="listBox1_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Border BorderBrush="Bisque" BorderThickness="1" Margin="10">
                             <StackPanel Margin="10">
                                 <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
-                                <TextBlock Text="{Binding Author}" />
-                                <TextBlock Text="{Binding Year}" />
+                                <TextBlock Text="{Binding Adress}" />
+                                <TextBlock Text="{Binding Phone}" />
                             </StackPanel>
                         </Border>
                     </DataTemplate>
@@ -36,6 +38,10 @@
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
             </ListBox>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <Button Content="Сохранить" Margin="15 0 0 0" Click="Save_Click" />
+                <Button Content="Открыть" Margin="15 0 0 0" Click="Open_Click" />
+            </StackPanel>
         </StackPanel>
     </ScrollViewer>
 </Window>
