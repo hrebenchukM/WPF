@@ -7,41 +7,36 @@
         mc:Ignorable="d"
         Title="Записная книжка" Height="450" Width="800" MinHeight="450" MinWidth="500" Background="#F7E3AF">
 
-    <Grid Margin="10">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="2*"/>
-        </Grid.ColumnDefinitions>
-
-       
-        <StackPanel Grid.Row="0" Grid.Column="0" Margin="5">
-            <TextBlock Text="Список записей" FontWeight="Bold"/>
-            <ListBox x:Name="RecordsListBox"  />
+    <Window.Resources>
+        <local:BookRecords x:Key="bookrecords" RecordName="Мария Г.Г." RecordAdress="Березовка,ул.Победы,д.32" RecordPhone="+380972860462" />
+    </Window.Resources>
+    <ScrollViewer>
+        <StackPanel DataContext="{StaticResource bookrecords}">
+            <StackPanel Orientation="Horizontal" Margin="0" VerticalAlignment="Center">
+                <TextBox Name="langName" Width="150" Text="{Binding RecordName}" GotFocus="langName_GotFocus"></TextBox>
+                <TextBox Name="langAuthor" Width="150" Text="{Binding RecordAdress}" GotFocus="langName_GotFocus"></TextBox>
+                <TextBox Name="langYear" Width="150" Text="{Binding RecordPhone}" GotFocus="langName_GotFocus"></TextBox>
+                <Button Content="Добавить" Margin="15 0 0 0" Click="Button_Click" />
+            </StackPanel>
+            <ListBox ItemsSource="{Binding Records}" SelectedIndex="{Binding  Index_selected_listbox, Mode=TwoWay}"
+             SelectionChanged="listBox1_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Bisque" BorderThickness="1" Margin="10">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding Adress}" />
+                                <TextBlock Text="{Binding Phone}" />
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
         </StackPanel>
-
-    
-        <StackPanel Grid.Row="0" Grid.Column="1" Margin="10">
-            <TextBlock Text="ФИО:" />
-            <TextBox x:Name="NameTextBox"   />
-
-            <TextBlock Text="Адрес:" />
-            <TextBox x:Name="AddressTextBox"/>
-
-            <TextBlock Text="Телефон:" />
-            <TextBox x:Name="PhoneTextBox" />
-        </StackPanel>
-
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-            <Button Content="Добавить" Width="100" Margin="5" Click="Add_Click"/>
-            <Button Content="Изменить" Width="100" Margin="5" Click="Edit_Click"/>
-            <Button Content="Удалить" Width="100" Margin="5" Click="Remove_Click"/>
-            <Button Content="Сохранить" Width="100" Margin="5" Click="SaveAs_Click"/>
-            <Button Content="Открыть" Width="100" Margin="5" Click="Open_Click"/>
-        </StackPanel>
-    </Grid>
+    </ScrollViewer>
 </Window>

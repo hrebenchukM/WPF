@@ -27,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hw3Notepad", "Hw3Notepad\Hw
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingToUIElement", "..\..\..\6. Привязка данных\3. Привязка к элементу управления\BindingToUIElement\BindingToUIElement\BindingToUIElement.csproj", "{7F10CC47-761E-412F-B44D-A7C07913782F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hw4Pocket-book", "Hw4Pocket-book\Hw4Pocket-book.csproj", "{E20D6A2E-B916-4FEE-8DE1-D56BFDE3F6AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hw4Pocket-bookI", "Hw4Pocket-book\Hw4Pocket-bookI.csproj", "{E20D6A2E-B916-4FEE-8DE1-D56BFDE3F6AA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBinding", "..\..\..\6. Привязка данных\5. Множественная привязка\DataBinding\DataBinding.csproj", "{5A255259-C2A5-49E8-8C10-73426F7C6A0C}"
 EndProject
