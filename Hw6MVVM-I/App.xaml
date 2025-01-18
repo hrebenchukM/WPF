@@ -1,0 +1,7 @@
+﻿<Application x:Class="Hw6MVVM_I.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Hw6MVVM_I"
+             Startup="OnStartup">
+  
+</Application>
