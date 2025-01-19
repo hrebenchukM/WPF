@@ -19,8 +19,8 @@
                 <Button Content="Удалить" Margin="15 0 0 0" Command="{Binding DeleteCommand}" />
             </StackPanel>
 
-            
-            <ListBox ItemsSource="{Binding Records}" IsSynchronizedWithCurrentItem="True" SelectedIndex="{Binding  Index_selected_listbox, Mode=TwoWay}"
+
+            <ListBox ItemsSource="{Binding RecordsList}" IsSynchronizedWithCurrentItem="True" SelectedIndex="{Binding  Index_selected_listbox, Mode=TwoWay}"
                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListBox.ItemTemplate>
                     <DataTemplate>

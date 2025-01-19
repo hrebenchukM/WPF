@@ -12,72 +12,49 @@ namespace Hw6MVVM_I
     //теперь уже нету регистрации свойств зависимостей,а есть реализация интерфейса контракта INotifyPropertyChanged,который предполагает выставить подписку
     class MainWindowViewModel : INotifyPropertyChanged
     {
-        public MainWindowViewModel()
-        {
-            CurrentName = "Имя";
-            CurrentAdress = "г.Город,ул.Улица,д.Номер";
-            CurrentPhone = "+380*********";
-            
-        }
-        private ObservableCollection<Record> _records = new ObservableCollection<Record>();
+        public ObservableCollection<RecordWindowViewModel> RecordsList { get; set; }
 
-        public ObservableCollection<Record> Records
+        public MainWindowViewModel(List<Record> records)
         {
-            get
-            {
-                return _records;
-            }
-            set
-            {
-                _records = value;
-                RaisePropertyChanged(nameof(Records));
-            }
+            RecordsList = new ObservableCollection<RecordWindowViewModel>(records.Select(r => new RecordWindowViewModel(r)));
         }
 
-        private string _currentName;
 
+
+        private string currentName;
         public string CurrentName
         {
-            get
-            {
-                return _currentName;
-            }
+            get { return currentName; }
             set
             {
-                _currentName = value;
+                currentName = value;
                 RaisePropertyChanged(nameof(CurrentName));
             }
         }
 
-        private string _currentAdress;
+        private string currentAdress;
         public string CurrentAdress
         {
-            get
-            {
-                return _currentAdress;
-            }
+            get { return currentAdress; }
             set
             {
-                _currentAdress = value;
+                currentAdress = value;
                 RaisePropertyChanged(nameof(CurrentAdress));
             }
         }
-        private string _currentPhone;
 
+        private string currentPhone;
         public string CurrentPhone
         {
-            get
-            {
-                return _currentPhone;
-            }
+            get { return currentPhone; }
             set
             {
-                _currentPhone = value;
+                currentPhone = value;
                 RaisePropertyChanged(nameof(CurrentPhone));
             }
         }
 
-      
+
 
         private int index_selected_listbox = -1;
 
@@ -89,20 +66,20 @@ namespace Hw6MVVM_I
                 index_selected_listbox = value;
 
                 RaisePropertyChanged(nameof(Index_selected_listbox));
-                if (index_selected_listbox >= 0 && index_selected_listbox < Records.Count)
+                if (index_selected_listbox >= 0 && index_selected_listbox < RecordsList.Count)
                 {
-                    var selectedRecord = Records[index_selected_listbox];
+                    RecordWindowViewModel selectedRecord = RecordsList[index_selected_listbox];
                     CurrentName = selectedRecord.Name;
                     CurrentAdress = selectedRecord.Adress;
                     CurrentPhone = selectedRecord.Phone;
                 }
             }
         }
-       
 
 
 
-      
+
+
 
 
         private DelegateCommand _AddCommand;
@@ -119,11 +96,11 @@ namespace Hw6MVVM_I
         }
         private void Add(object o)
         {
-            Record record = new Record();
-            record.Name = CurrentName;
-            record.Adress = CurrentAdress;
-            record.Phone = CurrentPhone;
-            Records.Add(record);
+            Record newRecord = new Record();
+            newRecord.Name = CurrentName;
+            newRecord.Adress = CurrentAdress;
+            newRecord.Phone = CurrentPhone;
+            RecordsList.Add(new RecordWindowViewModel(newRecord));
         }
 
         private bool CanAdd(object o)
@@ -151,16 +128,16 @@ namespace Hw6MVVM_I
         }
         private void Edit(object o)
         {
-                var selectedRecord = Records[Index_selected_listbox];
-                selectedRecord.Name = CurrentName;
-                selectedRecord.Adress = CurrentAdress;
-                selectedRecord.Phone = CurrentPhone;
+            RecordWindowViewModel selectedRecord = RecordsList[Index_selected_listbox];
+            selectedRecord.Name = CurrentName;
+            selectedRecord.Adress = CurrentAdress;
+            selectedRecord.Phone = CurrentPhone;
         }
 
 
         private bool CanEdit(object o)
         {
-            return Index_selected_listbox >= 0 && Index_selected_listbox < Records.Count;
+            return Index_selected_listbox >= 0 && Index_selected_listbox < RecordsList.Count;
         }
 
 
@@ -180,14 +157,14 @@ namespace Hw6MVVM_I
         private void Delete(object o)
         {
 
-            Records.RemoveAt(Index_selected_listbox);
+            RecordsList.RemoveAt(Index_selected_listbox);
             Index_selected_listbox = -1;
 
         }
 
         private bool CanDelete(object o)
         {
-            return Index_selected_listbox >= 0 && Index_selected_listbox < Records.Count;
+            return Index_selected_listbox >= 0 && Index_selected_listbox < RecordsList.Count;
         }
 
 
@@ -225,12 +202,13 @@ namespace Hw6MVVM_I
 
             if (saveFileDialog1.ShowDialog() == true)
             {
-        
+
 
                 var lines = new List<string>();
-                foreach (Record record in Records)
+                foreach (RecordWindowViewModel recordViewModel in RecordsList)
                 {
-                    lines.Add(record.Name + ";" + record.Adress + ";" + record.Phone);
+                   
+                    lines.Add(recordViewModel.Name + ";" + recordViewModel.Adress + ";" + recordViewModel.Phone);
                 }
 
                 File.WriteAllLines(saveFileDialog1.FileName, lines);
@@ -241,7 +219,7 @@ namespace Hw6MVVM_I
 
         private bool CanSave(object o)
         {
-            return Records.Count > 0;
+            return RecordsList.Count > 0;
         }
 
 
@@ -267,20 +245,20 @@ namespace Hw6MVVM_I
 
             if (openFileDialog1.ShowDialog() == true)
             {
-              
+
                 var lines = File.ReadAllLines(openFileDialog1.FileName);
-                Records.Clear();
+                RecordsList.Clear();
                 foreach (var line in lines)
                 {
                     var parts = line.Split(';');
                     if (parts.Length == 3)
                     {
-                        Records.Add(new Record
+                        RecordsList.Add(new RecordWindowViewModel(new Record
                         {
                             Name = parts[0],
                             Adress = parts[1],
                             Phone = parts[2]
-                        });
+                        }));
                     }
                 }
             }
@@ -297,8 +275,8 @@ namespace Hw6MVVM_I
 
         private void RaisePropertyChanged(string propertyName)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));//поскольку нет свойств зависимостей то требуется оповестить подписчика элементов управления при изменениях.
-                                                                                      //Оповещаем впф инфраструктуру о том что ей нужно отреагировать и повызывать canExecute для всех команд,
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));//поскольку нет свойств зависимостей то требуется оповестить подписчика элементов управления при 
+                                                                                      //Оповещаем впф инфраструктуру о том что ей нужно отреагировать и повызывать canExecute для всех команд, изменениях.  
                                                                                       //вернее оповестить подписчиков которые выполнили привязку
         }
 

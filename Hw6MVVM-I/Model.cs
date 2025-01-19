@@ -3,7 +3,7 @@ using System.Xml.Linq;
 
 namespace Hw6MVVM_I
 {
-    class Record : INotifyPropertyChanged
+    class Record 
     {
 
         private string name;
@@ -19,7 +19,7 @@ namespace Hw6MVVM_I
             set
             {
                 name = value;
-                OnPropertyChanged(new PropertyChangedEventArgs(nameof(Name)));
+                
             }
         }
         public string Adress
@@ -31,7 +31,7 @@ namespace Hw6MVVM_I
             set
             {
                 adress = value;
-                OnPropertyChanged(new PropertyChangedEventArgs(nameof(Adress)));
+             
             }
         }
         public string Phone
@@ -43,16 +43,11 @@ namespace Hw6MVVM_I
             set
             {
                 phone = value;
-                OnPropertyChanged(new PropertyChangedEventArgs(nameof(Phone)));
+             
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged(PropertyChangedEventArgs e)
-        {
-            PropertyChanged?.Invoke(this, e);
-        }
+      
         public Record(string n, string a, string p)
         {
             Name = n;
