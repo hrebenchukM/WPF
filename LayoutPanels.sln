@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hw6MVVM-D", "Hw6MMVM-D\Hw6M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hw7Colors", "Hw7Colors\Hw7Colors.csproj", "{211CA0FD-6072-4B8D-B4D0-C187201294A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hw9AuthenticationWindow", "Hw9AuthenticationWindow\Hw9AuthenticationWindow.csproj", "{658D731C-EC24-4645-9B74-B65110C678E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -153,6 +155,10 @@ Global
 		{211CA0FD-6072-4B8D-B4D0-C187201294A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{211CA0FD-6072-4B8D-B4D0-C187201294A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{211CA0FD-6072-4B8D-B4D0-C187201294A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{658D731C-EC24-4645-9B74-B65110C678E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{658D731C-EC24-4645-9B74-B65110C678E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{658D731C-EC24-4645-9B74-B65110C678E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{658D731C-EC24-4645-9B74-B65110C678E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
